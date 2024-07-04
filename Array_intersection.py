@@ -1,13 +1,16 @@
 from collections import Counter
-def intersect(nums1, nums2):
-   count1=Counter(nums1)
-   count2=Counter(nums2)
-   intersection=count1&count2
-   result=[]
-   for num in intersection:
-      result+=[num]*intersection[num]
-   return result
-# Example
-nums1 = [1,2,2.3,5,1]
-nums2 = [2,2,5]
-print(intersect(nums1, nums2)) # Output: [2,2]
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        # Count the occurrences of each number in both lists
+        count_nums1 = Counter(nums1)
+        count_nums2 = Counter(nums2)
+        
+        # Find the intersection by getting the minimum occurrences of each element in both lists
+        intersection = count_nums1 & count_nums2
+        
+        # Convert the intersection to a list, considering the number of occurrences
+        result = []
+        for num in intersection.elements():
+            result.append(num)
+        
+        return result
