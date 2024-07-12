@@ -157,5 +157,101 @@ names.sort(key=lambda x: len(x)) #Sorts the names array in terms of the length r
 
 #List Comprehension
 arr=[i for i in range(5)] # to initialize the array with numbers from 0 to 4 and include them in the array. i.e arr=[0,1,2,3,4]
-  
+
+#Creating a 2D list
+# A 2D list is a list of lists
+arr2D=[[1,2,3],[4,5,6],[7,8,9]]
+arr = [[0]*3 for i in range(3)] # Will create a 3x3 2D array with all elements initialized to 0 
 #------------------------------------------------------------------------------------------
+
+#Strings in python
+s="Hello"
+print(s[0]) # Will print H
+#We can slice strings as we do with arrays
+print(s[1:3]) # Will print el
+#Strings are immutable in python, so we cannot change the value of a string at a particular index
+#We can concatenate strings using the '+' operator
+s1="world"
+s2=s+s1 # Will concatenate the strings s and s1 and store the result in s2
+#Strings can be converted to integers and vice versa
+s="123"
+n=int(s) # Will convert the string to an integer
+s=str(n) # Will convert the integer to a string
+#We can access the ASCII value of a character using the ord function
+print(ord("a"))
+#Combining strings with empty delimiters
+strings=["ab", "cd", "ef"]
+print("".join(strings))
+#------------------------------------------------------------------------------------------
+# Queues in python are double ended by default and can be used by...
+from collections import deque
+queue=deque()
+queue.append(1)
+queue.append(2)
+print(queue)
+#Queue operations
+queue.popleft() #Removes elements from the left side of the queue
+queue.appendleft(5) #Adds 5 to the left of the queue
+#To pop from the right side, we use the normal pop operation
+#------------------------------------------------------------------------------------------
+
+#Hashsets in python || hashsets operations are usually done in O(1) time complexity
+mySet= set() # Hashsets cannot have repeated values
+mySet.add(1) #Adds 1 to the hashset
+mySet.add(2) #Adds 1 to the hashset
+mySet.add(5)
+print(mySet) # Will print {1,2,5}
+print(len(mySet)) # prints 3
+print(1 in mySet) # Will return True since there is 1 in the Hashset
+print(2 in mySet) # Will return True since there is 2 in the Hashset
+print(3 in mySet) # Will return False since there is no 3 in the Hashset
+mySet.remove(2) # Used to remove 2 from the Hashset
+
+#List to set
+print(set([1,2,3])) # Will print 1,2,3
+#set comprehension
+mySet={i for i in range(5)}
+print(mySet) # Will print 0,1,2,3,4
+#------------------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------------------
+#HashMap(dictionaries (or Dics for short))
+myMap={}
+myMap["alice"]=88 #Assigns 88 to the key index alice
+myMap["joe"]=84 #Assigns 84 to the key index joe
+myMap["Bob"]=78
+print(len(myMap))
+print(myMap) # Will print {'alice':88, 'joe':84, 'Bob':78}
+print(myMap["alice"]) # Will print 88
+myMap["alice"]=80 #Will reassign key alice to value 80
+print("alice" in myMap) #Will print true since alice is found in myMap Hashset
+myMap.pop("alice") #Will delete the key alice and it's value
+print("alice" in myMap) #Will print false since alice is now no longer found in myMap Hashset
+#HashMap initialization
+newMap={"jane": 70, "peter": 50, "James": 45}
+print(newMap) #Will print {'jane': 70, 'peter': 50, 'james':45}
+
+#Dics comprehension(Usaully used in graph problems in adjacency lists)
+myMap={i: 2*i for i in range(3)}
+print(myMap) #Will print {0: 0, 1: 2, 2: 4}
+
+#Looping through maps
+#Method 1. Using the map indexes, or a key
+newMap={"jane": 70, "peter": 50, "James": 45}
+for key in newMap:
+    print(key, newMap[key]) #Will print: 
+    # jane 70
+    # peter 50
+    # James 45
+#method 2. Using the direct values
+for val in newMap.values():
+    print(val)# Will print:
+    # 70
+    # 50
+    # 45
+#method 3. Using unpacking to get the key and values
+for key, val in newMap.items():
+    print(key, val) #Will print 
+    # jane 70
+    # peter 50
+    # James 45
