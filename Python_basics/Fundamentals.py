@@ -45,7 +45,7 @@ for i in range(a,20):
 for i in range(5,0,-1):
     print(i)
     #here, we use the -1 to indicate that the loop should decrement by 1.
-    #We can replace 1 by any other number to decrement by the value.
+    #We can replace -1 by any other number to decrement by the value.
     #If we do not include any third parameter, the loop will increment by default
 #------------------------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ print(len(arr1)) # will print 5
 #printing the values of the array from index 1 to index 2, not including index 3
 print(arr1[1:3]) # Will print indexes 1,2
 #printing from index 0 to index 4 not including index 5
-print(arr1[0:5]) #will print inidexes 0,1,2,3,4. Actually similar to for loops with thye last index being exclusive
+print(arr1[0:5]) #will print inidexes 0,1,2,3,4. Actually similar to for loops with the last index being exclusive
 
 #unpacking in arrays is assigning the individual elements of the array to some other variables
 x,y,z=[1,2,3]
@@ -181,7 +181,7 @@ s=str(n) # Will convert the integer to a string
 print(ord("a"))
 #Combining strings with empty delimiters
 strings=["ab", "cd", "ef"]
-print("".join(strings))
+print("".join(strings))#Will print abcdef
 #------------------------------------------------------------------------------------------
 # Queues in python are double ended by default and can be used by...
 from collections import deque
@@ -255,3 +255,88 @@ for key, val in newMap.items():
     # jane 70
     # peter 50
     # James 45
+    #------------------------------------------------------------------------------------------
+
+    #------------------------------------------------------------------------------------------
+    #Tuples in python
+    #tuple initialization
+    tup=(1,2,3) 
+    #Tuples are immutable, so we cannot change the value of a tuple at a particular index
+    tup[1]=5 # Will return an error
+    tup[1] # Will return 2
+    #Tuples can be used as keys in dictionaries(hashmaps)
+    myMap={(1,2): 5, (2,3): 6}
+    print(myMap[(1,2)]) # Will print 5
+    #Tuples can be used as values in dictionaries
+    myMap={1: (2,3), 2: (3,4)}
+    print(myMap[1]) # Will print (2,3)
+    #Tuples can be unpacked
+    x,y=(1,2)
+    print(x) # Will print 1
+    #Tuples can be used to return multiple values from a function
+    def func():
+        return 1,2
+    x,y=func()
+    print(x) # Will print 1
+    #------------------------------------------------------------------------------------------
+
+    #------------------------------------------------------------------------------------------
+    #Heaps in python
+    import heapq
+    #Heaps under the hood are arrays, but they are treated as binary trees
+    #heap initialization
+    heap=[]
+    #Adding elements to the heap
+    heapq.heappush(heap, 1)
+    heapq.heappush(heap, 2)
+    heapq.heappush(heap, 3)
+    print(heap) # Will print [1,2,3]
+    #Popping elements from the heap
+    print(heapq.heappop(heap)) # Will print 1
+    print(heap) # Will print [2,3]
+    #To get the minimum element in the heap
+    #heap[0] will return the minimum element in the heap
+    print(heap[0]) # Will print 2
+    #minimum value in the heap is always at the root(index 0) of the heap
+    #To get the maximum element in the heap, we use the nlargest method
+    print(heapq.nlargest(1, heap)) # Will print [3] since 3 is the largest element in the heap
+    #To get the minimum element in the heap, we use the nsmallest method
+    print(heapq.nsmallest(1, heap)) # Will print [2] since 2 is the smallest element in the heap
+    #Trying to implement a maxHeap in python
+    maxHeap=[]
+    heapq.heappush(maxHeap, -1) # Will push -1 to the heap
+    heapq.heappush(maxHeap, -2) # Will push -2 to the heap
+    heapq.heappush(maxHeap, -3) # Will push -3 to the heap
+    print(maxHeap) # Will print [-3,-2,-1] since the heap is a minHeap
+    #To implement a maxHeap, we can use the negative values of the elements and then negate(multiply by -1) the result
+    #To get the maximum element in the maxHeap
+    print(-1*maxHeap[0]) # Will print 3
+
+    #Building a heap from an array
+    arr=[1,2,3,4,5]
+    heapq.heapify(arr) # Will convert the array into a heap
+    #------------------------------------------------------------------------------------------
+
+    #------------------------------------------------------------------------------------------
+    #Functions in python
+    #general look. We use the def keyword
+    def myFunc(n,m):
+        return n+m
+    #To call the function
+    print(myFunc(1,2)) # Will print 3
+
+    #Nested functions in python
+    def outerFunc():
+        def innerFunc():
+            print("Inner function")
+        innerFunc()
+#Functions can modify objects without reassigning unless using the nonlocal keyword
+def double(arr, val):
+    def helper():
+        #Modifying array works
+        for i,n in enumerate(arr):
+            arr[i]*= 2
+#Will only modify the value in the scope of the helper function
+#To modify the value of a function in the helper function, we use the nonlocal keyword. e.g
+        nonlocal val
+        val*=2
