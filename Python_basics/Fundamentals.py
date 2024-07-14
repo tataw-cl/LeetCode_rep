@@ -340,3 +340,12 @@ def double(arr, val):
 #To modify the value of a function in the helper function, we use the nonlocal keyword. e.g
         nonlocal val
         val*=2
+ #------------------------------------------------------------------------------------------
+
+  #------------------------------------------------------------------------------------------
+  #Classes in python
+  class MyClass:
+    #Constructors
+    def __init__(self,nums):
+        #Creating member variables
+        self.nums = nums
