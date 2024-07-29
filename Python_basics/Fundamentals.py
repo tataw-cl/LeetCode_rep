@@ -231,6 +231,28 @@ print("alice" in myMap) #Will print false since alice is now no longer found in 
 newMap={"jane": 70, "peter": 50, "James": 45}
 print(newMap) #Will print {'jane': 70, 'peter': 50, 'james':45}
 
+# Creating a dictionary
+my_dict = {}
+
+# Inserting key-value pairs
+my_dict['apple'] = 1
+my_dict['banana'] = 2
+my_dict['orange'] = 3
+
+# Accessing values
+print(my_dict['apple'])  # Output: 1
+
+# Checking if a key exists
+if 'banana' in my_dict:
+    print("Banana is in the dictionary")
+
+# Deleting a key-value pair
+del my_dict['orange']
+
+# Iterating over key-value pairs
+for key, value in my_dict.items():
+    print(f"{key}: {value}")
+
 #Dics comprehension(Usaully used in graph problems in adjacency lists)
 myMap={i: 2*i for i in range(3)}
 print(myMap) #Will print {0: 0, 1: 2, 2: 4}
