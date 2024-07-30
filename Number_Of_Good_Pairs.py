@@ -32,9 +32,37 @@
 # My solution:
 class Solution(object):
     def numIdenticalPairs(self, nums):
-        ans=0
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        pairs=0
         for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i]==nums[j]:
-                    ans+=1
+            for j in range(len(nums)):
+                if (nums[i]==nums[j] and i<j):
+                    pairs+=1
+        return pairs
+        
+# Time complexity: O(n^2)
+# Space complexity: O(1)
+#Comparing with other solutions:
+class Solution(object):
+    def numIdenticalPairs(self, nums):
+        count = {}
+        ans = 0
+        
+        # Count the occurrences of each number
+        for num in nums:
+            if num in count:
+                count[num] += 1
+            else:
+                count[num] = 1
+        
+        # Calculate the number of good pairs
+        for key in count:
+            n = count[key]
+            ans += n * (n - 1) // 2
+        
         return ans
+# Time complexity: O(n)
+# Space complexity: O(n)
