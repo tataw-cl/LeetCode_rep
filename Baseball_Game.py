@@ -80,3 +80,6 @@ class Solution(object):
             else:
                 stack.append(int(i))
         return sum(stack)
+    
+# Time complexity: O(n)
+# Space complexity: O(n)

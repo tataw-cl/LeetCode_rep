@@ -57,3 +57,6 @@ class Solution(object):
                 res[j] = i - j
             stack.append(i)
         return res
+    
+# Time complexity: O(n)
+# Space complexity: O(n)
