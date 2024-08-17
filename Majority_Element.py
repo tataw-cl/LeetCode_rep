@@ -43,9 +43,9 @@ class Solution:
 # Space complexity: O(1)
 
 # Other solution:
-# class Solution:
-#     def majorityElement(self, nums: List[int]) -> int:
-#         return sorted(nums)[len(nums)//2]
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        return sorted(nums)[len(nums)//2]
 
 # Time complexity: O(nlogn)
 # Space complexity: O(1)
