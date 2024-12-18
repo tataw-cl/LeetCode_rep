@@ -35,10 +35,10 @@ while d<5:
 
 #------------------------------------------------------------------------------------------
 #for loops in python
-#Looping from i=0 and increasing i till i<10 and ending there
+#Looping from i=0 and increasing i till i<10(i.e i=9) and ending there
 for i in range(10):
     print(i*i)    
-#looping from i=a, and increasing i till i<20
+#looping from i=a, and increasing i till i<20 is true
 for i in range(a,20):
     print(i)
 #Looping from i=5 and decreasing till i>0(i.e i=1) and ending there
@@ -198,7 +198,7 @@ queue.appendleft(5) #Adds 5 to the left of the queue
 #Hashsets in python || hashsets operations are usually done in O(1) time complexity
 mySet= set() # Hashsets cannot have repeated values
 mySet.add(1) #Adds 1 to the hashset
-mySet.add(2) #Adds 1 to the hashset
+mySet.add(2) #Adds 2 to the hashset
 mySet.add(5)
 print(mySet) # Will print {1,2,5}
 print(len(mySet)) # prints 3
