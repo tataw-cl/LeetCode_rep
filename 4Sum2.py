@@ -1,4 +1,4 @@
-454. 4Sum II
+"""454. 4Sum II
 Solved
 Medium
 Topics
@@ -31,6 +31,7 @@ n == nums3.length
 n == nums4.length
 1 <= n <= 200
 -228 <= nums1[i], nums2[i], nums3[i], nums4[i] <= 228
+"""
 
 #My solution:
 class Solution(object):
@@ -51,4 +52,32 @@ class Solution(object):
             for num4 in nums4:
                 rhs=-(num3+num4)
                 count+=lhs[rhs]
-        return count
+        return 
+    
+    #Time complexity: O(n^2)
+    #Space complexity: O(n^2)
+    
+#Other Solutions:
+class Solution(object):
+    def fourSumCount(self, A, B, C, D):
+        AB = collections.Counter(a + b for a in A for b in B)
+        return sum(AB[-c - d] for c in C for d in D) 
+    
+    #Time complexity: O(n^2)
+    #Space complexity: O(n^2)
+
+    #Other Solution:
+    class Solution(object):
+        def fourSumCount(self, A, B, C, D):
+            count = 0
+            sum_map = {}
+            for a in A:
+                for b in B:
+                    sum_map[a + b] = sum_map.get(a + b, 0) + 1
+            for c in C:
+                for d in D:
+                    count += sum_map.get(-(c + d), 0)
+            return count
+        
+        #Time complexity: O(n^2)
+        #Space complexity: O(n^2)
