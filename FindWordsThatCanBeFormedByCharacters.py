@@ -51,6 +51,8 @@ class Solution(object):
             if good==True:
                 result+=len(word)
         return result
+        #Time complexity: O(n*m)
+        #Space complexity: O(n)
     
     #Other solutions:
     class Solution(object):
@@ -72,3 +74,6 @@ class Solution(object):
                 res += l
 
         return res
+
+        #Time complexity:O(n*m) where n is the number of words and m is the average length of the words.
+        #Space complexity:O(1) as we are using constant space.
