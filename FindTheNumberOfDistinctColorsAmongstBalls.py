@@ -62,21 +62,34 @@
 
 #My solution:
 class Solution(object):
-    def countColors(self, limit, queries):
+    def queryResults(self, limit, queries):
         """
         :type limit: int
         :type queries: List[List[int]]
         :rtype: List[int]
         """
-        colors = [0] * (limit + 1)
-        colorCount = 0
+        colors_Dict = {}
+        color_Count = {}
         result = []
-        for query in queries:
-            ball, color = query
-            if colors[ball] == 0:
-                colorCount += 1
-            colors[ball] = color
-            result.append(colorCount)
+
+        for i, j in queries:
+            if i in colors_Dict:
+                old_color = colors_Dict[i]
+                if old_color != j or old_color==j:
+                    color_Count[old_color] -= 1
+                    if color_Count[old_color] == 0:
+                        del color_Count[old_color]
+            
+            
+            colors_Dict[i] = j
+
+            if j in color_Count:
+                color_Count[j] += 1
+            else:
+                color_Count[j] = 1
+
+            result.append(len(color_Count))
+
         return result
     #Time complexity: O(n)
     #Space complexity: O(n)
