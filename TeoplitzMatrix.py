@@ -56,3 +56,20 @@ class Solution(object):
                 if matrix[i][j] != matrix[i + 1][j + 1]:
                     return False
         return True
+    
+# Time complexity: O(n*m)
+# Space complexity: O(1)
+
+#Other solution:
+class Solution(object):
+    def isToeplitzMatrix(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: bool
+        """
+        return all(r == 0 or c == 0 or matrix[r-1][c-1] == val
+                   for r, row in enumerate(matrix)
+                   for c, val in enumerate(row))
+    
+# Time complexity: O(n*m)
+# Space complexity: O(1)
