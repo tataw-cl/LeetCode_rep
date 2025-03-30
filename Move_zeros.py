@@ -66,16 +66,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        poppedZeros = []
-        i = 0
-        while i < len(nums):
-            if nums[i] == 0:
-                nums.pop(i)
-                poppedZeros.append(0)
-            else:
-                i += 1
-        size = len(nums)
-        nums[size:] = poppedZeros
+        n=len(nums)
+        pointer1,pointer2=0,0
+        while pointer2<n:
+            if nums[pointer2]!=0:
+                temp=nums[pointer1]
+                nums[pointer1]=nums[pointer2]
+                nums[pointer2]=temp
+                pointer1+=1
+            pointer2+=1
 
 # Time complexity: O(n)
-# Space complexity: O(n)
+# Space complexity: O(1)
