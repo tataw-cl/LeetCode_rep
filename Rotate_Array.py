@@ -105,3 +105,40 @@ class Solution(object):
     
     # Rotate the array by slicing
         nums[:] = nums[-k:] + nums[:-k]
+
+
+# Time complexity: O(n)
+# Space complexity: O(n)
+
+
+# Approach 3: Using Reverse
+
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        #Approach:
+        #Reverse the entire array e.g [1,2,3,4,5,6,7]-->[7,6,5,4,3,2,1]
+        #Then reverse the first k elements in this new array:[7,6,5,4,3,2,1]--> [5,6,7,4,3,2,1]
+        #Then reverse the remaining n-k elements:[5,6,7,4,3,2,1]--> [5,6,7,1,2,3,4]
+        n=len(nums)
+        k=k%n
+        def reverseRange(start,end):
+            while start<end:
+                nums[start],nums[end]=nums[end],nums[start]
+                start+=1
+                end-=1
+        
+        reverseRange(0,n-1) #Reverse the whole array
+
+        #Reverse the first K elements(which were initially the last k elements)
+        reverseRange(0,k-1) 
+
+        #Reverse the last k elements(which were initially the first n-k elements)
+        reverseRange(k,n-1)
+
+# Time complexity: O(n)
+# Space complexity: O(1)
