@@ -104,7 +104,7 @@ class Solution(object):
 
 
     #Other Solutions:
-    class Solution(object):
+class Solution(object):
     def simplifyPath(self, path):
         pathSplit = path.split("/")
         simplified = []
